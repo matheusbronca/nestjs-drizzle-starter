@@ -19,8 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
-      - name: Get localhost
-        run: netstat -lt
       - name: Run tests
         run: pnpm test:e2e
         env:
