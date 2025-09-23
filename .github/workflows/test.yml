@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
       - name: Run tests
+        run: netstat -lt
         run: pnpm test:e2e
         env:
           POSTGRES_USER: username
