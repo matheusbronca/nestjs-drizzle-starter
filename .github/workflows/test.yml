@@ -15,9 +15,10 @@ jobs:
       - name: Run tests
         run: pnpm test
   e2e-tests:
-    runs-on: ubuntu-latest
+    runs_on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name Set up E2E environment
       - uses: ./.github/actions/build
       - name: Run tests
         run: pnpm test:e2e

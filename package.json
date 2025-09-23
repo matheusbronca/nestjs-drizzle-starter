@@ -18,9 +18,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "npm run docker:start:test && npm run db:migrate:test && dotenv -e .env.test -- jest --runInBand --config ./test/jest-e2e.json && npm run docker:stop:test",
-    "docker:start": "docker-compose up -d",
-    "docker:start:test": "docker-compose -f docker-compose-e2e-test.yml up -d",
-    "docker:stop:test": "docker-compose -f docker-compose-e2e-test.yml down",
+    "docker:start": "docker compose up -d",
+    "docker:start:test": "docker compose -f docker-compose-e2e-test.yml up -d",
+    "docker:stop:test": "docker compose -f docker-compose-e2e-test.yml down",
     "db:migrate:test": "dotenv -e .env.test -- ts-node src/database/scripts/reset-db.ts && dotenv -e .env.test -- drizzle-kit migrate"
   },
   "dependencies": {
