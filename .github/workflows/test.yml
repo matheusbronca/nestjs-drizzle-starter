@@ -18,6 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name:
+          Set up E2E environment
+          # A simple loop to check if the PostgreSQL container is accepting connections
+        run: |
+          echo "Waiting for PostgreSQL to be ready..."
+          until pg_isready -h localhost -p 5444 -U username; do
+            sleep 1
+          done
+          echo "PostgreSQL is ready!"
+        env:
+          POSTGRES_USER: username # Ensure the user matches your docker-compose file
+          # POSTGRES_PASSWORD is not needed for pg_isready
       - uses: ./.github/actions/build
       - name: Run tests
         run: pnpm test:e2e
