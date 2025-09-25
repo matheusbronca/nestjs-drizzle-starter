@@ -13,7 +13,11 @@ async function bootstrap(): Promise<void> {
       whitelist: true, // Strips properties that werent declared in DTOs
     }),
   );
-  await app.listen(process.env.PORT ?? 3000);
+
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+  const host = '0.0.0.0';
+
+  await app.listen(port, host);
 }
 
 void bootstrap();
