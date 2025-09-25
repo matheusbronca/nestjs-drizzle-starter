@@ -15,7 +15,7 @@ jobs:
       - name: Install Drizzle ORM
         run: pnpm install drizzle-orm pg dotenv
       - name: Apply database migrations
-        run: pnpx drizzle-kit migrate
+        run: pnpm exec drizzle-kit migrate
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}
