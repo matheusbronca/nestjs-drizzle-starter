@@ -13,9 +13,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
       - name: Install Drizzle ORM
-        run: pnpm add drizzle-orm pg dotenv --global
+        run: pnpm add drizzle-orm pg dotenv
+        run: pnpm add -D drizzle-kit
       - name: Apply database migrations
-        run: pnpx drizzle-kit migrate
+        run: pnpm drizzle-kit migrate
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           POSTGRES_DATABASE: ${{ secrets.DATABASE_URL }}
