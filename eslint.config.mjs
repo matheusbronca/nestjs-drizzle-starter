@@ -4,6 +4,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+/** @type {import("eslint").Linter.Config[]} */
 export default tseslint.config(
   {
     ignores: ['eslint.config.mjs'],
