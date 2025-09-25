@@ -28,6 +28,6 @@ jobs:
       - name: Install Railway CLI
         run: pnpm add --global @railway/cli
       - name: Deploy to Railway
-        run: railway up --service="nestjs-drizzle-starter"
+        run: railway run deploy --service="nestjs-drizzle-starter"
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
