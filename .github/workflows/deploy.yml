@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build
+      - name: Install Drizzle ORM
+        run: pnpm add drizzle-orm pg dotenv
       - name: Apply database migrations
         run: pnpx drizzle-kit migrate
         env:
