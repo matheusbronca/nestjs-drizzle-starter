@@ -20,7 +20,7 @@ jobs:
         run: pnpm drizzle-kit migrate
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          POSTGRES_DATABASE: ${{ secrets.DATABASE_URL }}
+          POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}
           POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
