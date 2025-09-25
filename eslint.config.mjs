@@ -4,8 +4,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-/** @type {import("eslint").Linter.Config[]} */
-export default tseslint.config(
+export default [
   {
     ignores: ['eslint.config.mjs'],
   },
@@ -20,13 +19,14 @@ export default tseslint.config(
       },
       sourceType: 'commonjs',
       parserOptions: {
-        projectService: true,
+        project: true,
         // @ts-ignore
         tsconfigRootDir: import.meta.dirname,
       },
     },
   },
   {
+    files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
@@ -39,4 +39,4 @@ export default tseslint.config(
       '@typescript-eslint/unbound-method': 'off',
     },
   },
-);
+];
