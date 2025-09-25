@@ -14,6 +14,7 @@ jobs:
       - uses: ./.github/actions/build
       - name: Install Drizzle ORM
         run: pnpm add drizzle-orm pg dotenv
+      - name: Install Drizzle-Kit
         run: pnpm add -D drizzle-kit
       - name: Apply database migrations
         run: pnpm drizzle-kit migrate
