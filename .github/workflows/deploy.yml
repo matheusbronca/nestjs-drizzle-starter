@@ -14,10 +14,8 @@ jobs:
       - uses: ./.github/actions/build
       - name: Install Drizzle ORM
         run: npm install drizzle-orm pg dotenv
-      - name: Install Drizzle-Kit
-        run: npm install -D drizzle-kit
       - name: Apply database migrations
-        run: npm run drizzle-kit migrate
+        run: npx drizzle-kit migrate
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}
