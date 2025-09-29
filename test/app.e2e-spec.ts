@@ -6,6 +6,6 @@ describe('AppController (e2e)', () => {
     return request(server)
       .get('/')
       .expect(200)
-      .expect({ data: 'Hello undefined!' });
+      .expect({ data: 'Hello World!' });
   });
 });

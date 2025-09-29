@@ -16,12 +16,13 @@ const drizzleProvider: Provider<DrizzleDB> = {
   ) => {
     const pool = new Pool({
       connectionString: configService.getOrThrow('databaseUrl'),
+      ssl: false,
     });
 
     const schemas = await schemaLoader.getSchemas();
 
     // Use the factory function to create a typed db instance
-    const db = createDrizzleDb(pool, schemas as AppSchemas) as DrizzleDB;
+    const db = createDrizzleDb(pool, schemas as AppSchemas);
 
     return Object.assign(db, {
       reset: () => resetDatabase(db),
@@ -35,7 +36,7 @@ const drizzleProvider: Provider<DrizzleDB> = {
   exports: [DATABASE_CONNECTION],
 })
 export class DatabaseModule implements OnModuleDestroy {
-  constructor(@Inject(DATABASE_CONNECTION) private readonly db: DrizzleDB) { }
+  constructor(@Inject(DATABASE_CONNECTION) private readonly db: DrizzleDB) {}
 
   async onModuleDestroy() {
     await this.db.$client.end();
