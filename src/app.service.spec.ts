@@ -1,5 +1,3 @@
-// app.service.spec.ts
-
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppService } from '../src/app.service';
 import { createMock } from '@golevelup/ts-jest';
@@ -60,9 +58,9 @@ describe('AppService', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World"', async () => {
+    it('should return "Hello World"', () => {
       // 🎯 The mock is already configured in beforeEach
-      const result = await appService.getHello();
+      const result = appService.getHello();
       expect(result).toBe('Hello example@mail.com!');
     });
   });
