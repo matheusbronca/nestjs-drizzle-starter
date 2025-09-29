@@ -61,7 +61,7 @@ describe('AppService', () => {
     it('should return "Hello World"', () => {
       // 🎯 The mock is already configured in beforeEach
       const result = appService.getHello();
-      expect(result).toBe('Hello example@mail.com!');
+      expect(result).toBe('Hello World!');
     });
   });
 });
